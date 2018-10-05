@@ -1,3 +1,19 @@
+## Component Class vs Stateless Component
+
+```JavaScript
+class ListContacts extends Component {
+  ...
+  this.props.name
+}
+```
+
+```JavaScript
+function ListContacts(props) {
+  ...
+  props.name
+}
+```
+
 ## React Stateless Functional Components
 
 ```JavaScript
