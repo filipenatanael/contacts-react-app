@@ -38,11 +38,42 @@ describe('ListContacts Component', () => {
       contacts: _contacts,
       onDeleteContact: _onDeleteContact
     };
-    const component = shallow(<ListContacts {...props} />);
-  })
+
+    component = shallow(<ListContacts {...props} />);
+
+  });
 
   test('Should have an input.', () => {
-    expect(1 + 1).toBe(2);
+    expect(component.find('input').length).toBe(1);
   });
+
+  test('Should have a text on input.', () => {
+    expect(component.find('input').prop('type')).toBe('text');
+  });
+
+  test('Should have a className.', () => {
+    expect(component.find('input').prop('className')).toBe('search-contacts');
+  });
+
+  test('Query is empty!', () => {
+    expect(component.find('input').prop('value')).toBe('');
+  });
+
+  test('Should have 9 nodes', () => {
+    expect(component.find('div').children().length).toBe(9);
+  });
+
+  test('Should have a input after of first div', () => {
+     expect(component.find('div').children().at(2).name()).toBe('input');
+  });
+
+  // test('Should have a children', () => {
+  //    expect(component.find('div').children().first().text()).toBe('input');
+  //   // expect(component.find('div').children().first().html()).toBe('input');
+  // });
+
+  // test('Defined query to search [Richard]', () => {
+  //   expect(component.find('input').prop('value')).toBeDefined('Richard');
+  // });
 
 });
