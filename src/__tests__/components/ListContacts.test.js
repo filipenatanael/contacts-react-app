@@ -64,16 +64,31 @@ describe('ListContacts Component', () => {
   });
 
   test('Should have a input after of first div', () => {
-     expect(component.find('div').children().at(2).name()).toBe('input');
+    expect(component.find('div').children().at(3).name()).toBe('input');
   });
 
   // test('Should have a children', () => {
   //    expect(component.find('div').children().first().text()).toBe('input');
-  //   // expect(component.find('div').children().first().html()).toBe('input');
+  //    expect(component.find('div').children().first().html()).toBe('input');
   // });
 
-  // test('Defined query to search [Richard]', () => {
+  // test('Defined value `Richard`, () => {
   //   expect(component.find('input').prop('value')).toBeDefined('Richard');
   // });
+
+  test('Defined query to search `Tyler`', () => {
+    // Assign value to state.query
+    const input = component.find('input').first()
+    input.simulate('change', {
+      target: { value: 'Tyler' }
+    });
+    // Check if state.query is equal `Tyler`
+    expect(component.state().query).toEqual('Tyler');
+  });
+
+
+
+
+
 
 });
