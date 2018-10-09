@@ -23,6 +23,9 @@ class App extends Component {
         return c.id !== contact.id
       })
     }))
+    // Remove from database
+    console.log(contact);
+    ContactsAPI.remove(contact)
   }
 
   render() {
