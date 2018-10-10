@@ -24,7 +24,7 @@ class ListContacts extends Component {
 
   render() {
     const { query } = this.state
-    const { contacts, onDeleteContact } = this.props
+    const { contacts, onDeleteContact, onNavigate } = this.props
 
     /* Display Queried Contacts */
     const showingContacts = query === ''
@@ -43,6 +43,12 @@ class ListContacts extends Component {
             value={query}
             onChange={(event) => this.updateQuery(event.target.value)}
           />
+
+          <a
+            href='#create'
+            className='add-contact'
+            onClick={() => onNavigate()}
+          >Add Contact</a>
         </div>
 
         {showingContacts.length !== contacts.length && (
@@ -57,9 +63,7 @@ class ListContacts extends Component {
             <li key={contact.id} className='contact-list-item'>
               <div
                 className='contact-avatar'
-                style={{
-                  backgroundImage: `url(${contact.avatarURL})`
-                }}>
+                style={{ backgroundImage: `url(${contact.avatarURL})` }}>
               </div>
 
               <div className='contact-details'>
