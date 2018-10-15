@@ -33,7 +33,7 @@ class App extends Component {
     ContactsAPI.create(contact)
       .then((contact) => {
         this.setState((prevState) => ({
-          contacts: prevState.contact.concat([contact])
+          contacts: prevState.contacts.concat([contact])
         }))
       })
   }
